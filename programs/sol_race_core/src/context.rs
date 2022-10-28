@@ -27,6 +27,7 @@ pub struct Initialize<'info> {
     pub pool_authority: Box<Account<'info, TokenAccount>>,
     /// CHECK
     pub garage_creator: AccountInfo<'info>,
+    /// CHECK
     pub kart_creator: AccountInfo<'info>,
     #[account(constraint = solr_mint.key() == pool_authority.mint)]
     pub solr_mint : Box<Account<'info, Mint>>,
@@ -69,9 +70,11 @@ pub struct VerifyNFT<'info> {
     /// CHECK The metadata account of the NFT
     pub garage_metadata_account: AccountInfo<'info>,
 
+    /// CHECK
     #[account(address = mpl_token_metadata::id())]
     pub token_metadata_program: AccountInfo<'info>,
     
+    /// CHECK
     pub creature_edition: AccountInfo<'info>,
 
     #[account(
@@ -122,9 +125,16 @@ pub struct InitStake<'info> {
     // pub creature_edition: AccountInfo<'info>,
     // #[account(address = mpl_token_metadata::id())]
     // pub token_metadata_program: AccountInfo<'info>
+    /// CHECK
     pub garage_metadata_account : UncheckedAccount<'info>,
+
+    /// CHECK
     pub creature_edition : UncheckedAccount<'info>,
+
+    /// CHECK
     pub token_metadata_program: UncheckedAccount<'info>,
+
+    /// CHECK
     pub system_program : Program<'info, System>
 }
 
@@ -164,8 +174,13 @@ pub struct InitKart<'info> {
     // nft master edition
     // pub kart_metadata_account: AccountInfo<'info>,
     // pub creature_edition: AccountInfo<'info>,
+    /// CHECK
     pub kart_metadata_account : UncheckedAccount<'info>,
+
+    /// CHECK
     pub creature_edition : UncheckedAccount<'info>,
+
+    /// CHECK
     #[account(address = mpl_token_metadata::id())]
     pub token_metadata_program: AccountInfo<'info>,
     pub system_program : Program<'info, System>
@@ -362,6 +377,8 @@ pub struct UpgradeKart<'info> {
     pub user_solr: Box<Account<'info, TokenAccount>>,
     #[account(constraint = solr_mint.key() == pool_account.solr_mint)]
     pub solr_mint : Box<Account<'info, Mint>>,
+
+    /// CHECK
     #[account(address = mpl_token_metadata::id())]
     pub token_metadata_program: AccountInfo<'info>,
     pub system_program : Program<'info, System>,
